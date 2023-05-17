@@ -34,7 +34,7 @@ window.addEventListener('load', function (){
             context.stroke();
             context.beginPath();
             context.moveTo(this.collisionX,this.collisionY);
-            context.lineTo(this.game.mouse.x,this.game.mouse.y)
+            context.lineTo(this.game.mouse.x,this.game.mouse.y);
             context.stroke();
 
 
@@ -43,8 +43,8 @@ window.addEventListener('load', function (){
         update(){
             this.dx = this.game.mouse.x - this.collisionX
             this.dy = this.game.mouse.y - this.collisionY
-            const distance = math.hypot(this.dy,this.dx);
-            if(distance>this.speedModifier){
+            const distance = Math.hypot(this.dy,this.dx);
+            if(distance > this.speedModifier){
                 this.speedX = this.dx/distance || 0;
                 this.speedY = this.dy/distance || 0;
             }
@@ -75,17 +75,17 @@ window.addEventListener('load', function (){
                 pressed:false
             }
 
-            canvas.addEventListener('mouseDown', (e) =>{
+            canvas.addEventListener('mousedown', (e) =>{
                 this.mouse.x = e.offsetX;
                 this.mouse.y = e.offsetY;
                 this.mouse.pressed = true
             });
-            canvas.addEventListener('mouseUp', (e) =>{
+            canvas.addEventListener('mouseup', (e) =>{
                 this.mouse.x = e.offsetX;
                 this.mouse.y = e.offsetY;
                 this.mouse.pressed = false
             });
-            canvas.addEventListener('mouseMove', (e) =>{
+            canvas.addEventListener('mousemove', (e) =>{
                 if(this.mouse.pressed){
                     this.mouse.x = e.offsetX;
                     this.mouse.y = e.offsetY;
